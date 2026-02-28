@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "datamgmt"
+version = "0.1.0"
+authors = [
+  { name="Victor Rodriguez", email="victor.a.dicecco@gmail.com" },
+]
+description = "Shared financial analysis and API utilities"
+readme = "README.md"
+requires-python = ">=3.8"
+dependencies = [
+    "asyncpg",
+    "requests", 
+    "aiohttp",
+    "nest_asyncio", 
+    "pandas",
+    "sqlalchemy",
+    "psycopg2-binary", 
+    "sqlalchemy" ]
+
+[tool.setuptools.packages.find]
+where = ["src"]

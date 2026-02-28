@@ -1,0 +1,21 @@
+# Python
+__pycache__/
+*.pyc
+
+# Virtual environments
+venv/
+.env/
+env/
+
+# IDEs
+.vscode/
+.idea/
+
+# Notebooks
+*.ipynb
+
+#Excel
+*.xlsx
+
+#Cache
+flask_cache/
