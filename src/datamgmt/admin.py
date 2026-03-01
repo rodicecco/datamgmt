@@ -40,7 +40,8 @@ class Database:
                                 'object': 'VARCHAR',
                                 'float64': 'FLOAT',
                                 'bool': 'BOOLEAN',
-                                'datetime64[ns]': 'TIMESTAMP'}
+                                'datetime64[ns]': 'TIMESTAMP', 
+                                'str':'VARCHAR'}
         
         self.host = self.db_secret['host']
         self.database = self.db_secret['database']
