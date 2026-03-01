@@ -1,4 +1,4 @@
-import pandas as  pd
+import pandas as pd
 from .admin import Database
 
 
@@ -29,29 +29,29 @@ class ISMMfg(Database):
 
         return True
     
-    class ISMServ(Database):
-        def __init__(self):
-            self.table_name = 'ismserv'
-            self.constraints = ['date']
-            
-            Database.__init__(self, self.table_name, self.constraints)
-
-        def data(self):
-            data = pd.read_excel('C:/Users/rodic/Scripts/0.workbench/z.support/ISM Services.xlsx')
-            data['date'] = pd.to_datetime(data['date'])
-            self.data_ = data
-            self.raw_data = self.data_.to_dict(orient='records')
-
-            cols = list(data.columns)
-
-            self.columns = data[cols].columns
-            self.dtypes = data.dtypes.items()
-
-            return data
+class ISMServ(Database):
+    def __init__(self):
+        self.table_name = 'ismserv'
+        self.constraints = ['date']
         
-        def update_sequence(self):
-            self.data()
-            self.create_table()
-            self.upsert_async()
+        Database.__init__(self, self.table_name, self.constraints)
 
-            return True
+    def data(self):
+        data = pd.read_excel('C:/Users/rodic/Scripts/0.workbench/z.support/ISM Services.xlsx')
+        data['date'] = pd.to_datetime(data['date'])
+        self.data_ = data
+        self.raw_data = self.data_.to_dict(orient='records')
+
+        cols = list(data.columns)
+
+        self.columns = data[cols].columns
+        self.dtypes = data.dtypes.items()
+
+        return data
+    
+    def update_sequence(self):
+        self.data()
+        self.create_table()
+        self.upsert_async()
+
+        return True
