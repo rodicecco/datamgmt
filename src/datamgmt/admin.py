@@ -41,6 +41,7 @@ class Database:
                                 'float64': 'FLOAT',
                                 'bool': 'BOOLEAN',
                                 'datetime64[ns]': 'TIMESTAMP', 
+                                'datetime64[us]': 'TIMESTAMP',
                                 'str':'VARCHAR'}
         
         self.host = self.db_secret['host']

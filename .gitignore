@@ -20,3 +20,4 @@ env/
 #Cache
 flask_cache/
 datamgmt.egg-info/
+build/
