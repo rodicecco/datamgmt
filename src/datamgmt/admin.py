@@ -131,7 +131,7 @@ class Database:
             columns = self.columns
             constraints = self.constraints
             values = self.gather_values()
-
+            
             cols_string = ', '.join(columns)
             const_string = ', '.join(constraints)
             excludes = list(set(columns) - set(constraints))

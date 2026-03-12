@@ -259,7 +259,7 @@ class SeriesRelease(Database):
         self.source = source.FREDData()
         self.endpoint = self.source.release_series
         self.table_name = 'econ_series_release'
-        self.constraints = ['id']
+        self.constraints = ['series_id']
         self.release_ids = release_ids
 
         self.ct = 0
@@ -275,9 +275,17 @@ class SeriesRelease(Database):
         raw_data = raw_data
         dic_lis = []
         for _ in raw_data:
+            
             temp_data = raw_data[_]['releases'][0]
-            temp_data['series_id'] = _
-            dic_lis.append(temp_data)
+            temp={}
+            for row in self.cols_:
+                if row not in temp_data.keys():
+                    temp[row] = None
+                else:
+                    temp[row] = temp_data[row]
+
+            temp['series_id'] = _
+            dic_lis.append(temp)
 
         return dic_lis
 
